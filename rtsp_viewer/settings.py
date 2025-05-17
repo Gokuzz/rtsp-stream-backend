@@ -3,10 +3,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'g!lm7^&67u$1%nqj1n+9@&v1md4a@9!k5^bhu%=r1u*0z4$=3!'
 
 DEBUG = True
-ALLOWED_HOSTS = ['*','localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['rtsp-stream-backend-1.onrender.com', '0.0.0.0']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,9 +16,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'streams',
+    'corsheaders'
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://gokuzz.github.io",
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +58,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('redis.serv.render.com', 6379)],
         },
     },
 }

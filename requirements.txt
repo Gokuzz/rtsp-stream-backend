@@ -4,3 +4,4 @@ channels-redis==4.2.0
 ffmpeg-python==0.2.0
 asgiref==3.6.0
 daphne==4.0.0
+django-cors-headers==4.7.0
