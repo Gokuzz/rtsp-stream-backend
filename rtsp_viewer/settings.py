@@ -6,6 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = True
 ALLOWED_HOSTS = ['rtsp-stream-backend-1.onrender.com', '0.0.0.0']
+SECRET_KEY = 'django-insecure-*12x+jpz$!fn9@2kg1@4&_f8!5h3xpdn0#-la5vd&=ep7f)95f'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
