@@ -14,4 +14,5 @@ def index(request):
 
 def ping_view(request):
     print('**************')
+    logger.info('Ping is called')
     return JsonResponse({'message': 'pong from Django!'})
