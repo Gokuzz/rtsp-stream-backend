@@ -37,7 +37,11 @@ class StreamConsumer(AsyncWebsocketConsumer):
                     vcodec='h264',
                     acodec='aac',
                     loglevel='error',
-                    fflags='+genpts'
+                    fflags='+genpts',
+                    video_bitrate='500k',  # Lower bitrate
+                        s='640x480',  # Lower resolution
+                        preset='ultrafast',  # Optimize encoding speed
+                        tune='zerolatency'
                 )
                 .run_async(pipe_stdout=True, pipe_stderr=True)
             )
