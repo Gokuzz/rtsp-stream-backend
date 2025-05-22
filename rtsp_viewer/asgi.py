@@ -8,9 +8,9 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rtsp_viewer.settings')
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
-    "websocket": AllowedHostsOriginValidator(
+    "websocket": 
         URLRouter(
             streams.routing.websocket_urlpatterns
         )
-    ),
+    ,
 })
