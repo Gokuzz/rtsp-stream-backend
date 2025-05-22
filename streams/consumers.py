@@ -24,6 +24,7 @@ class StreamConsumer(AsyncWebsocketConsumer):
             process = None
             try:
                 logger.info(f"Starting FFmpeg (Attempt {attempt + 1}/{max_retries})")
+                logger.info(f"Starting FFmpeg for RTSP: {stream_url}")      
                 process = (
                 ffmpeg
                 .input(stream_url, rtsp_flags='prefer_tcp', timeout=10000000)
