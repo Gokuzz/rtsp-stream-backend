@@ -58,10 +58,8 @@ ASGI_APPLICATION = 'rtsp_viewer.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('redis.serv.render.com', 6379)],
-        },
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        
     },
 }
 

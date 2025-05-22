@@ -9,6 +9,9 @@ logger = logging.getLogger(__name__)
 
 class StreamConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+        logger.debug("inside consumer")
+        logger.info("inside consumer")
+
         self.stream_id = self.scope['url_route']['kwargs']['stream_id']
         query_params = parse_qs(self.scope["query_string"].decode())
         rtsp_url = query_params.get("rtsp", [None])[0]
